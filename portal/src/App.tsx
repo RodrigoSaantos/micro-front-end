@@ -1,17 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { View } from './components/View';
-import { CounterProvider } from 'counter/hooks/useCounter';
+import { Demonstration } from './components/View/Demonstration';
 
 function App() {
 
     return (
-        <CounterProvider>
-            <div className="App">
-                <View />
-            </div>
-        </CounterProvider>
+        <Demonstration />
     );
 }
 

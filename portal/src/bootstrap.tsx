@@ -3,13 +3,24 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+const TabProvider = React.lazy(() =>
+  import("counter/hooks/useTab").then((module) => {
+    return {
+      default: module.TabProvider,
+    };
+  })
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <React.Suspense fallback={<div>Carregando webpack...</div>}>
+      <TabProvider>
+        <App />
+      </TabProvider>
+    </React.Suspense>
   </React.StrictMode>
 );
 

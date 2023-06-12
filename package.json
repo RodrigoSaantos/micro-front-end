@@ -3,14 +3,19 @@
   "private": true,
   "workspaces": {
     "packages": [
+      "./global_components",
+      "./header",
       "./portal",
       "./counter",
+      "./installation",
+      "./structure",
+      "./menu",
       "./remote"
     ]
   },
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently 'cd ./portal && yarn start' 'cd ./remote && yarn start' 'cd ./counter && yarn dev'",
+    "start": "concurrently 'cd ./portal && yarn start' 'cd ./remote && yarn start' 'cd ./counter && yarn dev' 'cd ./global_components && yarn dev' 'cd ./header && yarn dev' 'cd ./menu && yarn dev' 'cd ./installation && yarn dev' 'cd ./structure && yarn dev'",
     "build": "concurrently 'cd ./portal && yarn build' 'cd ./remote && yarn build' 'cd ./counter && yarn build'",
     "test": "concurrently 'cd ./portal && yarn serve' 'cd ./remote && yarn serve'",
     "e2e:ci": "yarn start & wait-on http-get://localhost:3000/ && npx cypress run --config-file ../../cypress/config/cypress.config.ts --config '{\"supportFile\": \"../../cypress/support/e2e.ts\"}' --spec \"./e2e/tests/runAll.cy.ts\" --browser=chrome"

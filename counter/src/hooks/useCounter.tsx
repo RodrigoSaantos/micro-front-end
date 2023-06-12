@@ -1,4 +1,3 @@
-'use client';
 import React, {
   createContext,
   ReactNode,
@@ -10,6 +9,7 @@ import React, {
 type CounterContextData = {
   counter: number;
   addCounter: () => void;
+  resetCounter: () => void;
 };
 
 type AuthProviderProps = {
@@ -24,9 +24,13 @@ export function CounterProvider({ children }: AuthProviderProps) {
   const addCounter = useCallback(() => {
     setCounter(state => state + 1)
   }, []);
+
+  const resetCounter = useCallback(() => {
+    setCounter(0)
+  }, []);
   
   return (
-    <CounterContext.Provider value={{ counter, addCounter }}>
+    <CounterContext.Provider value={{ counter, addCounter, resetCounter }}>
      {children}
     </CounterContext.Provider>
   );

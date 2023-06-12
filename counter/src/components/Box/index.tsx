@@ -1,21 +1,12 @@
+// @refresh
 import { ReactNode } from 'react'
-import styled from 'styled-components'
+// import dynamic from 'next/dynamic';
+import { ContainerBox } from './styles'
 
-const ContainerBox = styled.div`
-  max-width: 42rem;
-  min-height: 100%;
-  max-height: 500px;
-  border-radius: 0.5rem;
-  box-shadow: 0 16px 70px rgba(0,0,0,.2);
-  color: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: red;
-`
+// const Button = dynamic(() => import('remote/Button').then(module => module.Button), {
+//   ssr: false,
+//   loading: () => <span>Carregando...</span>
+// })
 
 export interface BoxProps {
   children: ReactNode;
@@ -23,8 +14,10 @@ export interface BoxProps {
 
 export function Box({ children }: BoxProps) {
   return (
-    <ContainerBox>
+    <ContainerBox title="Counter">
       {children}
+      {/* <Button>Resetar</Button> */}
     </ContainerBox>
+      
   )
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { useCounter } from 'counter/hooks/useCounter';
 
 export const Card = () => {
-    const { addCounter, counter } = useCounter();
+    const { counter } = useCounter();
     return (
         <div
             style={{ border: '2px dotted red', padding: 20, marginBlockEnd: 16 }}

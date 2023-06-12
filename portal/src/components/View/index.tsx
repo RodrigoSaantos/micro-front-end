@@ -1,17 +1,17 @@
 import React from 'react';
 
-// import Box from 'counter/Box'
+import { Box } from 'counter/Box'
 
 // Module Federation - importing this from application 2
 import { useCounter } from 'counter/hooks/useCounter';
 
-const Box = React.lazy(() =>
-  import("counter/Box").then((module) => {
-    return {
-      default: module.Box,
-    };
-  })
-);
+// const Box = React.lazy(() =>
+//   import("counter/Box").then((module) => {
+//     return {
+//       default: module.Box,
+//     };
+//   })
+// );
 
 const Card = React.lazy(() =>
   import("remote/Card").then((module) => {
@@ -32,7 +32,6 @@ export function View() {
   const { addCounter, counter } = useCounter();
   return (
     <header className="App-header">
-      <React.Suspense fallback={<div>Loading...</div>}>
         <Box>
           <div>
             {counter}
@@ -47,7 +46,6 @@ export function View() {
             </React.Suspense>
           </div>
         </Box>
-      </React.Suspense>
     </header>
   )
 }

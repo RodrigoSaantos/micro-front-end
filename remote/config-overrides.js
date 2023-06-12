@@ -12,6 +12,8 @@ module.exports = function (config, env) {
         name: "remote",
         remotes: {
           counter: `counter@http://localhost:3002/_next/static/chunks/remoteEntry.js`,
+          global_components: 'global_components@http://localhost:3003/_next/static/chunks/remoteEntry.js',
+          header: `header@http://localhost:3004/_next/static/chunks/remoteEntry.js`
         },
         exposes: {
           "./Card": "./src/components/Card",
