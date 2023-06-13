@@ -36,6 +36,10 @@ declare module "structure/Structure" {
   export * from 'structure/src/components/Structure'
 };
 
+declare module "global_components/components/Breadcrumb" {
+  export * from 'global_components/src/components/Breadcrumb'
+};
+
 
 
 
