@@ -1,6 +1,9 @@
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
 
 module.exports = {
+  compiler: {
+    styledComponents: true,
+  },
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
@@ -9,6 +12,7 @@ module.exports = {
         remotes: {},
         exposes: {
           './components/Button': './src/components/Button',
+          './components/Breadcrumb': './src/components/Breadcrumb',
         },
         shared: 
           {
