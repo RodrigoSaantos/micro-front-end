@@ -24,7 +24,7 @@ const TabContext = createContext<TabContextData>({} as TabContextData);
 export function TabProvider({ children }: TabProviderProps) {
   const [tabSelected, setTabSelected] = useState<MenuOptions | undefined>(undefined);
 
-  const changeTab = useCallback((tab: MenuOptions) => {
+  const changeTab = useCallback((tab?: MenuOptions) => {
     setTabSelected(tab);
   }, []);
   
