@@ -3,11 +3,15 @@ const { dependencies } = require("./package.json")
 
 module.exports = {
   webpack(config, options) {
+    config.experiments = { ...config.experiments, topLevelAwait: true }
     config.plugins.push(
       new NextFederationPlugin({
         name: 'installation',
         filename: 'static/chunks/remoteEntry.js',
-        remotes: {},
+        remotes: {
+          counter: 'counter@http://localhost:3002/_next/static/chunks/remoteEntry.js',
+          global_components: 'global_components@http://localhost:3003/_next/static/chunks/remoteEntry.js',
+        },
         exposes: {
           './Installation': './src/components/Installation',
           './Introduction': './src/components/Introduction'
