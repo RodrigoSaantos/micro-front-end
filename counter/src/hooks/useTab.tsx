@@ -12,7 +12,7 @@ export type MenuOptions = typeof NAV[number]['name'];
 
 export type TabContextData = {
   tabSelected?: MenuOptions;
-  changeTab: (tab: MenuOptions) => void;
+  changeTab: (tab?: MenuOptions) => void;
 };
 
 type TabProviderProps = {
